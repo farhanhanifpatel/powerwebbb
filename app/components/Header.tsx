@@ -110,6 +110,7 @@ export default function Header() {
             ☰
           </button>
 
+<<<<<<< HEAD
           {/* CTA Button */}
           <a
             href="tel:+97450184018"
@@ -119,6 +120,32 @@ export default function Header() {
           >
             +974 5018 4018
           </a>
+=======
+      {/* Mobile Menu */}
+      {/* Mobile Menu */}
+      {mobileOpen && (
+        <div className="md:hidden fixed top-[80px] left-0 w-full bg-white shadow-lg z-[998]">
+          <div className="flex flex-col px-6 py-6 space-y-4">
+            {nav.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                onClick={() => setMobileOpen(false)}
+                className="text-gray-800 font-medium"
+              >
+                {item.name}
+              </Link>
+            ))}
+
+            <a
+              href="tel:+97450184018"
+              className="mt-4 px-5 py-3 rounded-full text-white text-center font-semibold
+        bg-gradient-to-r from-purple-600 to-indigo-600"
+            >
+              +974 5018 4018
+            </a>
+          </div>
+>>>>>>> cf0c03f (resolve-toggleissue in mobile menu)
         </div>
       </div>
     </header>

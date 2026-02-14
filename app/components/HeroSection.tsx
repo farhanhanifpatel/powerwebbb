@@ -26,7 +26,10 @@ export default function Hero({
 
   return (
     <main>
-      <section className="relative h-[90vh] flex items-center justify-center text-center overflow-hidden bg-[#0b0b0f] text-white">
+      <section
+        className="relative h-[90vh] overflow-x-hidden 
+ flex items-center justify-center text-center overflow-hidden bg-[#0b0b0f] text-white"
+      >
         {/* 🔥 Animated Gradient Blobs */}
         <motion.div
           animate={{ x: [0, 60, 0], y: [0, -40, 0] }}
