@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 export default function Header() {
   const pathname = usePathname();
@@ -53,24 +54,26 @@ export default function Header() {
 
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo + Title */}
-        <div className="flex items-center gap-3 cursor-pointer">
-          <Image
-            src="/cropped-PowerWeb-Logo.webp"
-            alt="powerweb"
-            width={200}
-            height={200}
-            className="h-12 w-auto object-contain"
-            priority
-          />
+        <Link href={"/"}>
+          <div className="flex items-center gap-3 cursor-pointer">
+            <Image
+              src="/cropped-PowerWeb-Logo.webp"
+              alt="powerweb"
+              width={200}
+              height={200}
+              className="h-12 w-auto object-contain"
+              priority
+            />
 
-          <h1
-            className={`text-2xl font-bold transition-colors duration-300 ${
-              scrolled ? "text-gray-900" : "text-white drop-shadow-md"
-            }`}
-          >
-            PowerWeb
-          </h1>
-        </div>
+            <h1
+              className={`text-2xl font-bold transition-colors duration-300 ${
+                scrolled ? "text-gray-900" : "text-white drop-shadow-md"
+              }`}
+            >
+              PowerWeb
+            </h1>
+          </div>
+        </Link>
 
         {/* Right Side */}
         <div className="flex items-center gap-10">
@@ -111,14 +114,16 @@ export default function Header() {
           </button>
 
           {/* CTA Button */}
-          <a
-            href="tel:+97450184018"
-            className="hidden md:block px-6 py-3 rounded-full text-white font-semibold
-            bg-gradient-to-r from-purple-600 to-indigo-600
-            hover:scale-105 hover:shadow-lg transition"
-          >
-            +974 5018 4018
-          </a>
+          <Link href="/contact">
+            <Button
+              className="hidden md:inline-flex rounded-full px-6 py-6 
+               text-white font-semibold
+               bg-gradient-to-r from-purple-600 to-indigo-600
+               hover:scale-105 hover:shadow-lg transition-all duration-300"
+            >
+              Contact Us
+            </Button>
+          </Link>
         </div>
       </div>
     </header>

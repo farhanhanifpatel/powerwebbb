@@ -14,9 +14,18 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "PowerWeb",
   description: "Best IT Company in Doha, Qatar",
+  icons: {
+    icon: [
+      {
+        url: "/powerweb-logo.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
