@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-import Header from "./components/Header"; // ✅ import header
-import Footer from "./components/Footer";
+import { Toaster } from "sonner";
+import Header from "./components/layout/Header"; // ✅ import header
+import Footer from "./components/layout/Footer";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -36,6 +36,7 @@ export default function RootLayout({
         {children}
 
         <Footer />
+        <Toaster position="top-right" richColors />
       </body>
     </html>
   );

@@ -12,11 +12,11 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="relative bg-gradient-to-br from-[#0f0c29] via-[#1a1a40] to-[#24243e] text-white pt-24 pb-10">
+    <footer className="relative bg-gradient-to-br from-[#0f0c29] via-[#1a1a40] to-[#24243e] text-white pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-6">
-        {/* Top Grid */}
+        {/* GRID */}
         <div className="grid md:grid-cols-4 gap-12">
-          {/* Brand */}
+          {/* BRAND */}
           <div>
             <h3 className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent mb-4">
               PowerWeb
@@ -27,9 +27,9 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Services */}
+          {/* SERVICES */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-white">Services</h4>
+            <h4 className="text-lg font-semibold mb-4">Services</h4>
             <ul className="space-y-3 text-white/70">
               {[
                 "Web Design",
@@ -48,9 +48,9 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* CONTACT */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-white">Contact</h4>
+            <h4 className="text-lg font-semibold mb-4">Contact</h4>
 
             <ul className="space-y-4 text-white/70">
               <li className="flex items-start gap-3">
@@ -70,29 +70,42 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Social */}
+          {/* MAP */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-white">Follow Us</h4>
+            <h4 className="text-lg font-semibold mb-4">Our Location</h4>
 
-            <div className="flex gap-4">
-              {[FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn].map(
-                (Icon, i) => (
-                  <div
-                    key={i}
-                    className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-purple-500 transition duration-300 cursor-pointer"
-                  >
-                    <Icon className="text-white" />
-                  </div>
-                ),
-              )}
+            <div className="w-full h-56 rounded-xl overflow-hidden border border-white/20 shadow-lg">
+              <iframe
+                src="https://www.google.com/maps?q=Qatar+Science+and+Technology+Park+Doha&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full"
+              ></iframe>
             </div>
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="my-12 h-px bg-white/10"></div>
+        {/* SOCIAL */}
+        <div className="flex justify-center gap-4 mt-12">
+          {[FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn].map(
+            (Icon, i) => (
+              <div
+                key={i}
+                className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-purple-500 transition duration-300 cursor-pointer"
+              >
+                <Icon />
+              </div>
+            ),
+          )}
+        </div>
 
-        {/* Bottom */}
+        {/* DIVIDER */}
+        <div className="my-8 h-px bg-white/10"></div>
+
+        {/* BOTTOM */}
         <div className="flex flex-col md:flex-row justify-between items-center text-white/60 text-sm gap-4">
           <p>
             © {new Date().getFullYear()} PowerWeb Technologies. All Rights
