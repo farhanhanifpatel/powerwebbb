@@ -20,7 +20,7 @@ export const metadata = {
   icons: {
     icon: [
       {
-        url: "/powerweb-logo.png",
+        url: "/cropped-PowerWeb-Logo.webp",
         sizes: "32x32",
         type: "image/png",
       },
