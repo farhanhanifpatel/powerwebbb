@@ -19,6 +19,7 @@ import FAQSection from "./components/sections/Faq";
 import ProcessSection from "./components/sections/ProcessSection";
 import CTASection from "./components/sections/CTA";
 import ResultsSection from "./components/sections/ResultSection";
+import Testimonials from "./web-design-qatar/components/Testimonials";
 
 export default function Home() {
   return (

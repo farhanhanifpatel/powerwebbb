@@ -9,6 +9,7 @@ import category from './documents/category';
 import author from './documents/author';
 import featured from './documents/featured';
 import project from './documents/project';
+import testimonial from  "./documents/testimonial"
 // import object
 import richText from './objects/richText';
 import normalText from './objects/normalText';
@@ -24,7 +25,7 @@ export default createSchema({
     author,
     project,
     featured,
-
+    testimonial,
     // object schemas
     normalText,
     richText,
