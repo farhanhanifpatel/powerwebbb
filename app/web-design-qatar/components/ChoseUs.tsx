@@ -26,7 +26,7 @@ const features = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="relative py-28 overflow-hidden bg-gradient-to-b from-white to-purple-50 dark:from-neutral-950 dark:to-neutral-900">
+    <section className="relative py-28 overflow-hidden  dark:from-neutral-950 dark:to-neutral-900">
       {/* Background Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-purple-600/10 blur-3xl rounded-full pointer-events-none" />
 
