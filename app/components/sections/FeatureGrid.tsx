@@ -8,17 +8,17 @@ export default function FeaturesGrid() {
     {
       icon: <FaGlobe />,
       title: "Qatar-Based Expertise",
-      desc: "Local professionals who deeply understand the Qatar market and business culture.",
+      desc: "Local team in Doha with deep understanding of Qatar’s business landscape and regulations.",
     },
     {
       icon: <FaHeadset />,
       title: "24/7 IT Support",
-      desc: "Our experts are available around the clock to keep your systems running smoothly.",
+      desc: "Round-the-clock assistance from our Qatar-based team – we’re here whenever you need us.",
     },
     {
       icon: <FaMedal />,
       title: "Proven Track Record",
-      desc: "Delivering successful IT solutions for startups, SMEs, and enterprises.",
+      desc: "Successfully completed hundreds of projects for startups and enterprises across Qatar since 2019.",
     },
   ];
 

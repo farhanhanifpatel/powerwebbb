@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import WhyChooseUs from "./components/ChoseUs";
 import ItSupport from "./components/ItSupport";
 import PastWork from "./components/PastWork";
@@ -11,6 +13,7 @@ import TechnologiesSection from "./components/TechnologiesUse";
 import FAQSection from "./components/Faq";
 import CTASection from "./components/CTA";
 import HomePage from "./components/Home";
+
 export default function ServicesPage() {
   return (
     <>

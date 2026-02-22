@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { motion } from "framer-motion";
 
 import {
   FaEnvelope,
@@ -28,58 +29,25 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 
-// ✅ Zod Schema with strict email validation
 const formSchema = z.object({
-  name: z
-    .string()
-    .min(2, "Name must be at least 2 characters")
-    .regex(/^[A-Za-z\s]+$/, "Only letters allowed"),
-
-  phone: z
-    .string()
-    .min(8, "Phone too short")
-    .regex(/^[0-9]+$/, "Only numbers allowed"),
-
-  email: z
-    .string()
-    .min(5, "Email too short")
-    .regex(
-      /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/,
-      "Invalid email format (e.g., name@example.com)",
-    ),
-
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  phone: z.string().min(8, "Phone too short"),
+  email: z.string().email("Invalid email"),
   message: z.string().min(5, "Message too short"),
 });
 
 type FormValues = z.infer<typeof formSchema>;
-type FormData = z.infer<typeof formSchema>;
 
 export default function ContactSection() {
   const [loading, setLoading] = useState(false);
 
-  const form = useForm<FormData>({
+  const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: { name: "", email: "", phone: "", message: "" },
-    mode: "onBlur",
-    reValidateMode: "onChange",
   });
-
-  useEffect(() => {
-    window.scrollTo(0, 40);
-
-    const handleScroll = () => {
-      if (window.scrollY < 35) {
-        window.scrollTo(0, 35);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const onSubmit = async (data: FormValues) => {
     setLoading(true);
-
     setTimeout(() => {
       setLoading(false);
       alert("Message Sent ✅");
@@ -88,39 +56,40 @@ export default function ContactSection() {
   };
 
   return (
-    <>
-      <div className="h-[60px]" />
+    <section className="relative min-h-screen flex items-center py-32 overflow-hidden bg-black text-white">
+      {/* Background Glow */}
+      <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-purple-600/30 blur-[120px] rounded-full" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-indigo-600/30 blur-[120px] rounded-full" />
 
-      <section className="bg-gray-50 min-h-screen flex items-end py-20">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 px-6 w-full">
-          {/* ✅ FORM */}
+      <div className="relative z-10 max-w-7xl mx-auto grid md:grid-cols-2 gap-20 px-6 w-full">
+        {/* ================= FORM ================= */}
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
-              className="bg-white shadow-xl rounded-xl p-8 space-y-5"
+              className="bg-white/5 backdrop-blur-2xl border border-white/10 shadow-2xl rounded-3xl p-12 space-y-8 hover:shadow-purple-500/20 transition-all duration-500"
             >
-              <h2 className="text-3xl font-bold">Contact Us</h2>
+              <h2 className="text-4xl font-bold tracking-tight">Let’s Talk</h2>
 
               {/* Name */}
               <FormField
                 control={form.control}
                 name="name"
-                render={({ field, fieldState }) => (
+                render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Full Name</FormLabel>
+                    <FormLabel className="text-gray-400">Full Name</FormLabel>
                     <FormControl>
                       <Input
-                        type="text"
-                        placeholder="John Doe"
                         {...field}
-                        value={field.value || ""}
+                        placeholder="John Doe"
+                        className="bg-white/10 border-white/20 text-white placeholder:text-gray-500 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all"
                       />
                     </FormControl>
-                    {fieldState.error && (
-                      <FormMessage className="text-red-500">
-                        {fieldState.error.message}
-                      </FormMessage>
-                    )}
+                    <FormMessage className="text-red-400" />
                   </FormItem>
                 )}
               />
@@ -129,22 +98,17 @@ export default function ContactSection() {
               <FormField
                 control={form.control}
                 name="phone"
-                render={({ field, fieldState }) => (
+                render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Phone</FormLabel>
+                    <FormLabel className="text-gray-400">Phone</FormLabel>
                     <FormControl>
                       <Input
-                        type="tel"
-                        placeholder="9876543210"
                         {...field}
-                        value={field.value || ""}
+                        placeholder="9876543210"
+                        className="bg-white/10 border-white/20 text-white placeholder:text-gray-500 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all"
                       />
                     </FormControl>
-                    {fieldState.error && (
-                      <FormMessage className="text-red-500">
-                        {fieldState.error.message}
-                      </FormMessage>
-                    )}
+                    <FormMessage className="text-red-400" />
                   </FormItem>
                 )}
               />
@@ -153,22 +117,17 @@ export default function ContactSection() {
               <FormField
                 control={form.control}
                 name="email"
-                render={({ field, fieldState }) => (
+                render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel className="text-gray-400">Email</FormLabel>
                     <FormControl>
                       <Input
-                        type="email"
-                        placeholder="email@example.com"
                         {...field}
-                        value={field.value || ""}
+                        placeholder="email@example.com"
+                        className="bg-white/10 border-white/20 text-white placeholder:text-gray-500 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all"
                       />
                     </FormControl>
-                    {fieldState.error && (
-                      <FormMessage className="text-red-500">
-                        {fieldState.error.message}
-                      </FormMessage>
-                    )}
+                    <FormMessage className="text-red-400" />
                   </FormItem>
                 )}
               />
@@ -177,116 +136,93 @@ export default function ContactSection() {
               <FormField
                 control={form.control}
                 name="message"
-                render={({ field, fieldState }) => (
+                render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Message</FormLabel>
+                    <FormLabel className="text-gray-400">Message</FormLabel>
                     <FormControl>
-                      <Textarea rows={4} {...field} value={field.value || ""} />
+                      <Textarea
+                        rows={5}
+                        {...field}
+                        placeholder="Tell us about your project..."
+                        className="bg-white/10 border-white/20 text-white placeholder:text-gray-500 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all"
+                      />
                     </FormControl>
-                    {fieldState.error && (
-                      <FormMessage className="text-red-500">
-                        {fieldState.error.message}
-                      </FormMessage>
-                    )}
+                    <FormMessage className="text-red-400" />
                   </FormItem>
                 )}
               />
 
               <Button
                 type="submit"
-                className="w-full bg-gradient-to-r from-purple-600 to-indigo-600"
+                size="lg"
+                className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-full py-6 text-lg shadow-lg hover:shadow-purple-500/40 hover:scale-105 transition-all duration-300"
               >
                 {loading ? "Sending..." : "Send Message"}
               </Button>
             </form>
           </Form>
+        </motion.div>
 
-          {/* RIGHT SIDE CARD */}
-          <div className="max-w-xl bg-white border border-gray-200 rounded-2xl shadow-lg p-8 space-y-8">
-            {/* Heading */}
-            <div>
-              <h2 className="text-4xl font-bold text-gray-900">Get in touch</h2>
+        {/* ================= RIGHT SIDE ================= */}
+        <motion.div
+          initial={{ opacity: 0, x: 60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7 }}
+          className="space-y-12"
+        >
+          <div>
+            <h2 className="text-5xl font-bold leading-tight">Get in touch.</h2>
 
-              <p className="text-gray-600 mt-4 leading-relaxed">
-                Ready to take your business to the next level? Contact us today
-                and let’s start the conversation. Whether you have questions,
-                want to discuss a project, or simply need advice — our team is
-                here to help.
-              </p>
-            </div>
-
-            {/* Contact Info */}
-            <div className="space-y-6">
-              {/* Email */}
-              <div className="flex items-center gap-4">
-                <div className="p-3 bg-purple-100 text-purple-600 rounded-lg">
-                  <FaEnvelope size={18} />
-                </div>
-
-                <div>
-                  <p className="text-sm text-gray-500">Email</p>
-                  <p className="font-semibold text-gray-900">
-                    info@powerweb.qa
-                  </p>
-                </div>
-              </div>
-
-              {/* Phone */}
-              <div className="flex items-center gap-4">
-                <div className="p-3 bg-indigo-100 text-indigo-600 rounded-lg">
-                  <FaPhone size={18} />
-                </div>
-
-                <div>
-                  <p className="text-sm text-gray-500">Phone</p>
-                  <p className="font-semibold text-gray-900">+974 5018 4018</p>
-                </div>
-              </div>
-
-              {/* Address */}
-              <div className="flex items-center gap-4">
-                <div className="p-3 bg-pink-100 text-pink-600 rounded-lg">
-                  <FaLocationDot size={18} />
-                </div>
-
-                <div>
-                  <p className="text-sm text-gray-500">Address</p>
-                  <p className="font-semibold text-gray-900">
-                    Qatar Science & Technology Park,
-                    <br />
-                    Doha, Qatar
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Divider */}
-            <div className="h-px bg-gray-200"></div>
-
-            {/* Socials */}
-            <div>
-              <p className="font-semibold text-gray-800 mb-4">
-                Follow us on social media
-              </p>
-
-              <div className="flex gap-4">
-                {[FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn].map(
-                  (Icon, i) => (
-                    <div
-                      key={i}
-                      className="w-11 h-11 flex items-center justify-center
-            rounded-full bg-gradient-to-r from-purple-600 to-indigo-600
-            text-white hover:scale-110 transition cursor-pointer shadow-md"
-                    >
-                      <Icon size={16} />
-                    </div>
-                  ),
-                )}
-              </div>
-            </div>
+            <p className="text-gray-400 mt-6 leading-relaxed text-lg">
+              Ready to take your business to the next level? Contact us today
+              and let’s start the conversation. Whether you have questions about
+              our services, want to discuss a project, or simply need advice,
+              our team is here to help. Reach out via phone, email, or fill out
+              the contact form below, and let’s make great things happen
+              together.
+            </p>
           </div>
-        </div>
-      </section>
-    </>
+
+          {/* Contact Info */}
+          {[
+            { icon: FaEnvelope, title: "Email", value: "info@powerweb.qa" },
+            { icon: FaPhone, title: "Phone", value: "+974 5018 4018" },
+            {
+              icon: FaLocationDot,
+              title: "Address",
+              value: "Qatar Science & Technology Park, Doha",
+            },
+          ].map((item, i) => (
+            <div key={i} className="flex items-start gap-5 group">
+              <div className="p-4 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-2xl text-white shadow-md group-hover:scale-110 transition">
+                <item.icon size={18} />
+              </div>
+
+              <div>
+                <p className="text-sm text-gray-500">{item.title}</p>
+                <p className="text-lg font-semibold">{item.value}</p>
+              </div>
+            </div>
+          ))}
+
+          {/* Social Icons */}
+          <div className="flex gap-5 pt-6">
+            {[FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn].map(
+              (Icon, i) => (
+                <div
+                  key={i}
+                  className="w-12 h-12 flex items-center justify-center
+                  rounded-full bg-white/10 backdrop-blur-md border border-white/10
+                  hover:bg-gradient-to-r from-purple-600 to-indigo-600
+                  hover:scale-110 transition-all duration-300 cursor-pointer"
+                >
+                  <Icon size={16} />
+                </div>
+              ),
+            )}
+          </div>
+        </motion.div>
+      </div>
+    </section>
   );
 }
