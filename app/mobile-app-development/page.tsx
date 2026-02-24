@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import HostingHero from "./components/HostingHero";
 import MobileAppQatarSection from "./components/MobileApp-Qatar";
 import HostingCTA from "./components/HostingCTA";

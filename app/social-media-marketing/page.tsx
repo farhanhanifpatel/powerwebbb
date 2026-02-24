@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import HostingHero from "./components/HostingHero";
 import OurMarketing from "./components/Our-marketing";
 import WhyChooseUs from "./components/Why-Choose-Us";
