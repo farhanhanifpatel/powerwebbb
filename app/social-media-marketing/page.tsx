@@ -41,7 +41,7 @@ export default async function HostingDomainSetupPage() {
       <HostingHero />
       <OurMarketing />
       <WhyChooseUs />
-      <SocialMediaPlatform data={data} />
+      {data && <SocialMediaPlatform data={data} />}
       <CTA />
     </main>
   );
