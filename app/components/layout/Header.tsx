@@ -30,6 +30,7 @@ export default function Header() {
         { name: "Web Design", href: "/web-design-qatar" },
         { name: "Mobile App Development", href: "/mobile-app-development" },
         { name: "SEO Services", href: "/seo-services" },
+        { name: "Social Media Marketing", href: "/social-media-marketing" },
       ],
     },
     { name: "About Us", href: "/about" },
