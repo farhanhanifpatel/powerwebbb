@@ -22,18 +22,17 @@ interface MediaData {
 export default async function HostingDomainSetupPage() {
   const data: MediaData | null = await client.fetch(
     `
-      *[_type == "mediaTabs"][0]{
-        sectionTitle,
-        tabs[]{
-          title,
-          content
-        }
+  *[_type == "mediaTabs"]
+    | order(_updatedAt desc)[0]{
+      sectionTitle,
+      tabs[]{
+        title,
+        content
       }
-    `,
+    }
+  `,
     {},
-    {
-      cache: "no-store", // ✅ THIS disables caching at fetch level
-    },
+    { cache: "no-store" },
   );
 
   return (
