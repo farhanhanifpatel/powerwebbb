@@ -1,33 +1,29 @@
 export const dynamic = "force-dynamic";
 
-import WhyChooseUs from "./components/ChoseUs";
-import ItSupport from "./components/ItSupport";
-import PastWork from "./components/PastWork";
 import ShopifyService from "./components/ShopifyService";
 import Testimonials from "./components/Testimonials";
 import WhoWeAre from "./components/WhoWeAre";
 import WordPressService from "./components/WorpressService";
-import OurFeatures from "./components/OurFeatures";
-import WebDesignProcess from "./components/DesignProcess";
-import TechnologiesSection from "./components/TechnologiesUse";
 import FAQSection from "./components/Faq";
 import CTASection from "./components/CTA";
 import HomePage from "./components/Home";
+import OurServices from "./components/OurServices";
+import WhyManagedIT from "./components/WhyManageIt";
+import OfficeNetwork from "./components/Office-Network";
+import DomainSetup from "./components/Domain-Setup";
 
 export default function ServicesPage() {
   return (
     <>
       <HomePage />
-      <WhyChooseUs />
+      <OurServices />
       <WhoWeAre />
       <WordPressService />
       <ShopifyService />
-      <ItSupport />
-      <PastWork />
-      <OurFeatures />
+      <DomainSetup />
+      <OfficeNetwork />
+      <WhyManagedIT />
       <Testimonials />
-      <WebDesignProcess />
-      <TechnologiesSection />
       <FAQSection />
       <CTASection />
     </>

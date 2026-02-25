@@ -21,7 +21,7 @@ export default function Testimonials() {
     const fetchTestimonials = async () => {
       try {
         const data = await client.fetch(`
-          *[_type == "testimonial"] | order(_createdAt desc) {
+          *[_type == "itTestimonial"] | order(_createdAt desc) {
             _id,
             name,
             country,

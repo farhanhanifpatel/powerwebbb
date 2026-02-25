@@ -31,6 +31,11 @@ export default function Header() {
         { name: "Mobile App Development", href: "/mobile-app-development" },
         { name: "SEO Services", href: "/seo-services" },
         { name: "Social Media Marketing", href: "/social-media-marketing" },
+        {
+          name: "Cyber Security",
+          href: "/cybersecurity-services-qatar",
+        },
+        { name: "IT Support", href: "/managed-it-support-service" },
       ],
     },
     { name: "About Us", href: "/about" },
