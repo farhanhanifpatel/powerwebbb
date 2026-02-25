@@ -13,20 +13,20 @@ export default function TechAndClients() {
     "/google-ads.webp",
   ];
 
-  const reviews = [
-    {
-      name: "Mohammad",
-      text: "Fantastic company, fast responsive and quality work.",
-    },
-    {
-      name: "Abdullah",
-      text: "Their web designs are awesome. Great experience.",
-    },
-    {
-      name: "Achraf",
-      text: "Best team for ecommerce website and app.",
-    },
-  ];
+  // const reviews = [
+  //   {
+  //     name: "Mohammad",
+  //     text: "Fantastic company, fast responsive and quality work.",
+  //   },
+  //   {
+  //     name: "Abdullah",
+  //     text: "Their web designs are awesome. Great experience.",
+  //   },
+  //   {
+  //     name: "Achraf",
+  //     text: "Best team for ecommerce website and app.",
+  //   },
+  // ];
 
   return (
     <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
@@ -72,7 +72,7 @@ export default function TechAndClients() {
         </div>
 
         {/* 🔹 TESTIMONIALS */}
-        <div className="text-center mb-14">
+        {/* <div className="text-center mb-14">
           <p className="text-purple-600 font-semibold uppercase tracking-widest">
             Testimonials
           </p>
@@ -96,7 +96,7 @@ export default function TechAndClients() {
               <h4 className="mt-4 font-semibold text-purple-700">— {r.name}</h4>
             </motion.div>
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   );

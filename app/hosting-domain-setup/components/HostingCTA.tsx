@@ -2,8 +2,10 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 export default function HostingCTA() {
+  const router = useRouter();
   return (
     <section className="py-24 bg-gradient-to-r from-purple-900 to-indigo-900 text-white text-center px-6 relative overflow-hidden">
       <motion.div
@@ -21,6 +23,7 @@ export default function HostingCTA() {
         </p>
 
         <Button
+          onClick={() => router.push("/contact")}
           size="lg"
           className="bg-white text-purple-900 hover:bg-gray-200 px-8 py-6 rounded-full text-lg"
         >

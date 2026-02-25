@@ -1,10 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Link } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 export default function CTASection() {
+  const router = useRouter();
   return (
     <section className="relative py-24 px-6">
       {/* Gradient Background Card */}
@@ -52,6 +54,7 @@ export default function CTASection() {
           {/* Premium Button */}
           <motion.div whileHover={{ scale: 1.07 }} whileTap={{ scale: 0.95 }}>
             <Button
+              onClick={() => router.push("/contact")}
               size="lg"
               className="group relative overflow-hidden rounded-full 
                          bg-gradient-to-r from-purple-500 to-indigo-500

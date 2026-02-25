@@ -3,8 +3,10 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function HostingHero() {
+  const router = useRouter();
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-indigo-950 via-purple-950 to-black text-white px-6">
       {/* Background Glow 1 */}
@@ -57,6 +59,7 @@ export default function HostingHero() {
           className="mt-12 flex justify-center"
         >
           <Button
+            onClick={() => router.push("/contact")}
             size="lg"
             className="group rounded-full px-10 py-6 text-base bg-purple-600 hover:bg-purple-700 text-white shadow-xl shadow-purple-500/40 transition-all duration-300"
           >

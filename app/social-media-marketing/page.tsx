@@ -1,7 +1,7 @@
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store"; // ✅ Important
 
-import HostingHero from "./components/HostingHero";
+import HostingHero from "./components/SocialMediaHero";
 import OurMarketing from "./components/Our-marketing";
 import WhyChooseUs from "./components/Why-Choose-Us";
 import SocialMediaPlatform from "./components/Social-Media_platform";

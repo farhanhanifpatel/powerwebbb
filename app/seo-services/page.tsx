@@ -1,6 +1,6 @@
 import HostingHero from "./components/HostingHero";
 import ChooseUs from "./components/Why-Choose-Us";
-import HostingCTA from "./components/HostingCTA";
+import SeoCTA from "./components/seo-cta";
 import WhyChooseUs from "./components/Seo-service";
 import WhyChooseIndustries from "./components/Seo-Partner";
 
@@ -11,7 +11,7 @@ export default async function HostingDomainSetupPage() {
       <WhyChooseUs />
       <ChooseUs />
       <WhyChooseIndustries />
-      <HostingCTA />
+      <SeoCTA />
     </main>
   );
 }

@@ -1,10 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 export default function HomePage() {
+  const router = useRouter();
   return (
     <main className="overflow-hidden">
       {/* ================= HERO SECTION ================= */}
@@ -39,6 +41,7 @@ export default function HomePage() {
             className="flex justify-center gap-6 flex-wrap"
           >
             <Button
+              onClick={() => router.push("/contact")}
               size="lg"
               className="rounded-full px-8 py-6 text-lg 
                          bg-gradient-to-r from-purple-500 to-indigo-500"

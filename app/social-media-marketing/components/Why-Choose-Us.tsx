@@ -91,8 +91,7 @@ export default function WhyChooseUs() {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white leading-tight"
           >
-            Your vision, our expertise—creating unforgettable mobile
-            experiences.
+            Social media marketing: where connections lead to conversions.
           </motion.h3>
         </div>
       </section>

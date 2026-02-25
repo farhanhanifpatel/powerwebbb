@@ -3,8 +3,10 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 
-export default function HostingHero() {
+export default function SocialMediaHero() {
+  const router = useRouter();
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-indigo-950 via-purple-950 to-black text-white px-6">
       {/* Background Glow 1 */}
@@ -32,7 +34,7 @@ export default function HostingHero() {
           transition={{ duration: 1 }}
           className="text-4xl md:text-6xl font-bold leading-tight tracking-tight"
         >
-          Mobile App Development{" "}
+          Social Media Marketing{" "}
           <span className="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">
             in Qatar
           </span>
@@ -45,8 +47,7 @@ export default function HostingHero() {
           transition={{ delay: 0.3, duration: 0.8 }}
           className="mt-8 text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed"
         >
-          We specialize in creating digital solutions using various technologies
-          to support your business growth and expand your customer base.
+          Leading Social Media Marketing Agency in Doha, Qatar
         </motion.p>
 
         {/* CTA */}
@@ -57,6 +58,7 @@ export default function HostingHero() {
           className="mt-12 flex justify-center"
         >
           <Button
+            onClick={() => router.push("/contact")}
             size="lg"
             className="group rounded-full px-10 py-6 text-base bg-purple-600 hover:bg-purple-700 text-white shadow-xl shadow-purple-500/40 transition-all duration-300"
           >

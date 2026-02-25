@@ -1,7 +1,7 @@
 export const dynamic = "force-dynamic";
-import HostingHero from "./components/HostingHero";
+import MobileAppHero from "./components/MobileAppHero";
 import MobileAppQatarSection from "./components/MobileApp-Qatar";
-import HostingCTA from "./components/HostingCTA";
+import MobileAppCTA from "./components/MobileAppCTA";
 import WhyChooseUs from "./components/Why-Choose-Us";
 import MobileService from "./components/MobileService";
 
@@ -32,13 +32,12 @@ export default async function HostingDomainSetupPage() {
 
   return (
     <main className="overflow-hidden">
-      <HostingHero />
+      <MobileAppHero />
       <MobileAppQatarSection />
       <MobileService data={data} />
       <TechnologiesSection />
-      {/* <HostingAudience /> */}
       <WhyChooseUs />
-      <HostingCTA />
+      <MobileAppCTA />
       <Faq />
     </main>
   );
