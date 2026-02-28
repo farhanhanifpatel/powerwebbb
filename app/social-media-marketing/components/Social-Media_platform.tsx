@@ -11,6 +11,9 @@ import {
   Target,
   Handshake,
   DollarSign,
+  TrendingUp,
+  BarChart3,
+  MapPin,
 } from "lucide-react";
 
 const benefits = [
@@ -50,6 +53,27 @@ const benefits = [
     description:
       "Social media marketing can significantly boost profitability by expanding reach, driving conversions, and enhancing customer engagement.",
   },
+
+  // ✅ NEW ADDED ITEMS
+
+  {
+    icon: TrendingUp,
+    title: "Proven Track Record",
+    description:
+      "Our SEO strategies are backed by measurable success stories, delivering consistent ranking improvements and real business growth.",
+  },
+  {
+    icon: BarChart3,
+    title: "Transparent Results",
+    description:
+      "We provide detailed reports and performance insights so you always know how your campaigns are performing.",
+  },
+  {
+    icon: MapPin,
+    title: "Local Market Expertise",
+    description:
+      "With deep understanding of local search trends and customer behavior, we help your business dominate your regional market.",
+  },
 ];
 
 interface Tab {
@@ -72,103 +96,43 @@ export default function MobileService({ data }: Props) {
 
   return (
     <>
-      <section className="py-32 px-6 bg-gradient-to-b from-white to-gray-50">
+      {/* FIRST SECTION */}
+      <section className="py-24 px-6 bg-gray-100">
         <div className="max-w-6xl mx-auto">
           {/* Section Title */}
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold text-center mb-20"
-          >
-            {data?.sectionTitle}
-          </motion.h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
+            {data.sectionTitle}
+          </h2>
 
-          <div className="grid lg:grid-cols-3 gap-12 items-start">
-            {/* Sidebar Tabs */}
-            <div className="relative space-y-3">
-              {tabs.map((tab, index) => {
-                const isActive = active === index;
+          {/* Horizontal Tabs */}
+          <div className="flex flex-wrap justify-center gap-2 mb-6">
+            {tabs.map((tab, index) => (
+              <button
+                key={index}
+                onClick={() => setActive(index)}
+                className={`px-6 py-3 rounded-t-lg font-semibold transition-all duration-300
+                ${
+                  active === index
+                    ? "bg-purple-600 text-white"
+                    : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                }`}
+              >
+                {tab.title}
+              </button>
+            ))}
+          </div>
 
-                return (
-                  <div
-                    key={index}
-                    onClick={() => setActive(index)}
-                    className="relative"
-                  >
-                    {/* Animated Active Background */}
-                    {isActive && (
-                      <motion.div
-                        layoutId="activeTab"
-                        className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-600"
-                        transition={{
-                          type: "spring",
-                          stiffness: 300,
-                          damping: 30,
-                        }}
-                      />
-                    )}
-
-                    <div
-                      className={`relative z-10 p-6 rounded-2xl cursor-pointer transition-all duration-300 ${
-                        isActive
-                          ? "text-white"
-                          : "text-gray-500 hover:text-black hover:bg-white hover:shadow-md"
-                      }`}
-                    >
-                      <span className="text-lg font-semibold">{tab.title}</span>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Content Area */}
-            <div className="lg:col-span-2 relative">
-              <div className="relative bg-white/90 backdrop-blur-xl p-8 md:p-10 rounded-3xl shadow-xl">
-                {/* Soft Gradient Border */}
-                <div className="absolute -inset-[1px] rounded-3xl bg-gradient-to-r from-purple-500 via-indigo-500 to-purple-500 opacity-10 blur-lg pointer-events-none"></div>
-
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={active}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.35 }}
-                    className="relative z-10"
-                  >
-                    <div className="prose prose-lg max-w-none text-gray-700">
-                      <PortableText value={tabs[active]?.content} />
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
-              </div>
+          {/* Content Box */}
+          <div className="bg-white border-2 border-purple-600 rounded-lg p-8">
+            <div className="prose max-w-none text-gray-700">
+              <PortableText value={tabs[active]?.content} />
             </div>
           </div>
         </div>
       </section>
 
-      <section className="relative py-24 px-6 bg-[#0f0f14] overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(124,58,237,0.25),transparent_60%)]" />
-
-        <div className="relative max-w-5xl mx-auto text-center">
-          <motion.h3
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white leading-tight"
-          >
-            Your vision, our expertise—creating unforgettable mobile
-            experiences.
-          </motion.h3>
-        </div>
-      </section>
-
+      {/* BENEFITS SECTION */}
       <section className="relative py-32 px-6 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden">
-        {/* Background Glow */}
         <div className="absolute top-40 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-12">
@@ -185,12 +149,9 @@ export default function MobileService({ data }: Props) {
                 whileHover={{ y: -12 }}
                 className="group relative"
               >
-                {/* Glow Effect */}
                 <div className="absolute -inset-[1px] rounded-3xl bg-gradient-to-r from-purple-500 via-indigo-500 to-purple-500 opacity-0 group-hover:opacity-100 blur-md transition duration-500" />
 
-                {/* Card */}
                 <div className="relative bg-white/80 backdrop-blur-xl rounded-3xl p-10 shadow-lg border border-gray-100 transition-all duration-500 group-hover:shadow-2xl">
-                  {/* Floating Icon */}
                   <motion.div
                     animate={{ y: [0, -6, 0] }}
                     transition={{
@@ -203,12 +164,10 @@ export default function MobileService({ data }: Props) {
                     <Icon size={26} />
                   </motion.div>
 
-                  {/* Title */}
                   <h3 className="text-2xl font-bold mb-4 text-gray-900">
                     {item.title}
                   </h3>
 
-                  {/* Description */}
                   <p className="text-gray-600 leading-relaxed">
                     {item.description}
                   </p>

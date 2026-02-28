@@ -57,29 +57,26 @@ export default async function PastWork() {
         </div>
 
         {/* Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
-            <div key={project._id} className="group relative">
-              {/* Glow Border */}
-              <div className="absolute inset-0 rounded-3xl "></div>
-
+            <div key={project._id} className="group relative max-w-sm mx-auto">
               <Link href={project.link || "#"} target="_blank">
-                <div className="relative overflow-hidden rounded-3xl shadow-xl cursor-pointer bg-white dark:bg-neutral-800">
+                <div className="relative overflow-hidden rounded-2xl shadow-lg cursor-pointer bg-white dark:bg-neutral-800 transition-all duration-300 hover:shadow-2xl">
                   {/* Image */}
                   <div className="overflow-hidden">
                     <Image
                       src={project.imageUrl}
                       alt={project.title}
                       width={600}
-                      height={450}
+                      height={400}
                       unoptimized
-                      className="w-full h-[320px] object-cover transition duration-700 group-hover:scale-110"
+                      className="w-full h-[220px] object-cover transition duration-500 group-hover:scale-105"
                     />
                   </div>
 
                   {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex items-end p-8">
-                    <span className="text-white text-lg font-semibold tracking-wide">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                    <span className="text-white text-sm font-semibold tracking-wide">
                       View Project →
                     </span>
                   </div>
@@ -87,8 +84,8 @@ export default async function PastWork() {
               </Link>
 
               {/* Title */}
-              <h3 className="mt-6 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-snug">
-                <span className="block">{project.title}</span>
+              <h3 className="mt-4 text-xl font-bold tracking-tight text-gray-900 dark:text-white leading-snug">
+                {project.title}
               </h3>
             </div>
           ))}

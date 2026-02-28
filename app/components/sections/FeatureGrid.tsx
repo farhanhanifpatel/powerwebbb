@@ -34,7 +34,7 @@ export default function FeaturesGrid() {
           whileHover={{ y: -8 }}
           className="group p-8 rounded-xl border hover:border-purple-600 hover:shadow-xl transition-all"
         >
-          <div className="bg-gradient-to-r from-purple-600 to-indigo-600 w-14 h-14 flex items-center justify-center mx-auto rounded-lg mb-4 group-hover:scale-110 transition text-white text-2xl">
+          <div className="bg-gradient-to-r from-purple-600 to-indigo-600 w-16 h-16 flex items-center justify-center mx-auto rounded-2xl mb-6 text-white text-2xl transition duration-500 group-hover:scale-110 group-hover:rotate-6">
             {item.icon}
           </div>
 

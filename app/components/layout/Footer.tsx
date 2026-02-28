@@ -113,17 +113,47 @@ export default function Footer() {
             </ul>
 
             {/* SOCIAL */}
+            {/* SOCIAL */}
             <div className="flex gap-3 mt-6">
-              {[FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn].map(
-                (Icon, i) => (
-                  <div
-                    key={i}
-                    className="w-9 h-9 flex items-center justify-center rounded-full bg-white/10 backdrop-blur hover:bg-purple-500 transition-all duration-300 cursor-pointer"
-                  >
-                    <Icon size={14} />
-                  </div>
-                ),
-              )}
+              <a
+                href="https://www.facebook.com/powerweb.qa"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="PowerWeb Facebook"
+                className="w-9 h-9 flex items-center justify-center rounded-full bg-white/10 backdrop-blur hover:bg-purple-500 transition-all duration-300 cursor-pointer"
+              >
+                <FaFacebookF size={14} />
+              </a>
+
+              <a
+                href="https://www.powerweb.qa/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="PowerWeb Twitter"
+                className="w-9 h-9 flex items-center justify-center rounded-full bg-white/10 backdrop-blur hover:bg-purple-500 transition-all duration-300 cursor-pointer"
+              >
+                <FaTwitter size={14} />
+              </a>
+
+              <a
+                href="https://www.powerweb.qa/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="PowerWeb Instagram"
+                className="w-9 h-9 flex items-center justify-center rounded-full bg-white/10 backdrop-blur hover:bg-purple-500 transition-all duration-300 cursor-pointer"
+              >
+                <FaInstagram size={14} />
+              </a>
+
+              <a
+                href="https://www.linkedin.com/company/powerweb"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="PowerWeb LinkedIn"
+                className="w-9 h-9 flex items-center justify-center rounded-full bg-white/10 backdrop-blur hover:bg-purple-500 transition-all duration-300 cursor-pointer"
+              >
+                <FaLinkedinIn size={14} />
+              </a>
             </div>
           </div>
         </div>
